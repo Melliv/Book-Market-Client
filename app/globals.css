@@ -17,11 +17,28 @@
 }
 
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  /* color: rgb(var(--foreground-rgb)); */
+}
+
+.default-button {
+
+}
+@layer components {
+  .default-button {
+    @apply text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800;
+  }
+  .light-theme {
+    @apply text-black bg-white
+  }
+  .dark-theme {
+    @apply text-white bg-slate-800
+  }
+}
+
+.dark-theme .MuiInputLabel-root {
+  color: white;
+}
+
+.dark-theme input {
+  color: white;
 }
