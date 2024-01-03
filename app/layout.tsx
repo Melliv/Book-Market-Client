@@ -12,7 +12,6 @@ export const metadata: Metadata = {
   description: 'Sell and buy books',
 }
 
-
 export default function RootLayout({
   children,
 }: {

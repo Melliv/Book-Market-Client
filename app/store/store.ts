@@ -1,13 +1,28 @@
-import { configureStore } from "@reduxjs/toolkit";
 import themeReducer from "./reducers/theme";
 import userReducer from "./reducers/user";
+import { combineReducers, createStore } from 'redux';
+import { persistStore, persistReducer } from 'redux-persist'
+import storage from 'redux-persist/lib/storage'
 
-export const store = configureStore({
-    reducer: {
-        theme: themeReducer,
-        user: userReducer,
-    }
-}) 
+const persistConfig = {
+    key: 'root',
+    storage,
+    debug: true,
+}
 
-export type RootState = ReturnType<typeof store.getState>
-export type AppDispatch = typeof store.dispatch
+
+const rootReducer = combineReducers({
+    theme: themeReducer,
+    user: userReducer
+});
+
+const persistedReducer = persistReducer(persistConfig, (rootReducer as any))
+export type RootState = ReturnType<typeof rootReducer>;
+
+export default function configureStore(initialState: any) {
+
+    let store = createStore(persistedReducer, initialState)
+    let persistor = persistStore(store)
+    return { store, persistor }
+
+}

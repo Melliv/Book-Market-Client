@@ -63,5 +63,22 @@ export abstract class BookService {
 
     }
 
+    static async editBook(book: IBook): Promise<{loading: boolean, error: boolean}> {
+        try {
+            const response = await api.put(`/book/${book.id}`, book);
+            return {
+                loading: false,
+                error: response.status != 200
+            };
+        }
+        catch (err) {
+            return {
+                loading: false,
+                error: true
+            }
+        }
+
+    }
+
 
 }

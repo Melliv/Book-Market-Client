@@ -1,8 +1,7 @@
-export default function Error() {
+import { Alert } from "@mui/material";
 
-    return (
-        <div>
-            Error!
-        </div>
-    )
+export default function Error({message = "Error"}: {message?: string}) {
+
+    return <Alert severity="error">{message}</Alert>
+
 }

@@ -72,7 +72,7 @@ export default function TopNavBar() {
         <div className="container mx-auto flex items-center justify-between text-blue-gray-900 ">
           <Link
             href="/"
-            className="mr-4 cursor-pointer py-1.5 font-medium"
+            className="cursor-pointer py-1.5 font-medium"
           >
             Books Marketplace
           </Link>
@@ -94,7 +94,7 @@ export default function TopNavBar() {
                   size="sm"
                   className="hidden lg:inline-block"
                 >
-                  <span>Sign in</span>
+                  <span>Sign In</span>
                 </Button>
               </Link>
             }
@@ -155,7 +155,7 @@ export default function TopNavBar() {
               {token ? <></> :
                 <Link href="/identity/register">
                   <Button fullWidth variant="gradient" size="sm" className="">
-                    <span>Sign in</span>
+                    <span>Sign In</span>
                   </Button>
                 </Link>
               }

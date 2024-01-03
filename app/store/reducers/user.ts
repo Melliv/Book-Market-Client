@@ -4,26 +4,26 @@ import { RootState } from "../store";
 export interface UserState {
     id: string
     username: string,
-    token: string
 }
 
 const initialState: UserState = {
     id: "",
     username: "",
-    token: ""
 }
 
-export const counterSlice = createSlice({
+export const userSlice = createSlice({
     name: "user",
     initialState,
     reducers: {
-        setUser: (state, action) => {
-            state = action.payload
+        setUserId: (state, action) => {            
+            state.id = action.payload
+        },
+        setUsername: (state, action) => {            
+            state.username = action.payload
         },
     }
 })
 
-export const {setUser} = counterSlice.actions
+export const {setUserId, setUsername} = userSlice.actions
 export const selectUser = (state: RootState) => state.user
-export const selectToken = (state: RootState) => state.user.token
-export default counterSlice.reducer
+export default userSlice.reducer
